@@ -1,4 +1,8 @@
 # `com.tomuvak.testing-coroutines` – a multi-platform Kotlin library with a utility to run async tests
+[![Licence][1]][2]
+[![Latest release version][3]][4]
+[![Build and tests status][5]][6]
+
 This library is licensed under the [MIT License](https://en.wikipedia.org/wiki/MIT_License);
 see [LICENSE.txt](LICENSE.txt).
 
@@ -13,7 +17,7 @@ One of the nice things about multi-platform Kotlin is that ideally a single vers
 without change on different platforms. Unfortunately, (currently) there are still cases where it seems this goal could
 theoretically be achieved, but for some reason Kotlin and its standard library do not provide a way to do so.
 
-One of these cases is [kotlinx.coroutines.runBlocking][1], which is not supported in Kotlin JS.
+One of these cases is [kotlinx.coroutines.runBlocking][7], which is not supported in Kotlin JS.
 
 This library tries to fill in that gap, specifically for the use case of test functions which make use of coroutines /
 async functionality.
@@ -92,4 +96,10 @@ class SomeTestSuite {
 
 The above code can be written in the same form no matter the platform.
 
-[1]: https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/run-blocking.html
+[1]: https://img.shields.io/github/license/tomuvak/testing-coroutines?label=Licence
+[2]: LICENSE.txt
+[3]: https://img.shields.io/github/v/tag/tomuvak/testing-coroutines?label=Latest%20release
+[4]: https://github.com/tomuvak/testing-coroutines/tags
+[5]: https://github.com/tomuvak/testing-coroutines/actions/workflows/check-on-push.yaml/badge.svg
+[6]: https://github.com/tomuvak/testing-coroutines/actions/workflows/check-on-push.yaml
+[7]: https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/run-blocking.html
