@@ -22,6 +22,14 @@ One of these cases is [`kotlinx.coroutines.runBlocking`][7], which is not suppor
 This library tries to fill in that gap, specifically for the use case of test functions which make use of coroutines /
 async functionality.
 
+Note: [`kotlinx-coroutines-test`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-test/) provides
+[`kotlinx.coroutines.test.runTest`][8], which addresses the very same need, and offers additional benefits, such as
+skipping [`delay`][9]s (with the ability to [mock the passage of time][10]). For most use cases that's probably a better
+choice than this library, and using this library is not recommended for use cases where Kotlinx's `runTest` works.
+However, for some use cases this library's `asyncTest` might be preferable, e.g. when for some reason actual `delay`s
+are actually important for the functionality (which should not be the case for typical unit tests, but might be the case
+when the functionality under test interacts with some external mechanism which for some reason cannot be mocked).
+
 ## How to use `com.tomuvak.testing-coroutines`
 
 ### Including this library in a Kotlin project
@@ -104,3 +112,6 @@ The above code can be written in the same form no matter the platform.
 [5]: https://github.com/tomuvak/testing-coroutines/actions/workflows/check-on-push.yaml/badge.svg
 [6]: https://github.com/tomuvak/testing-coroutines/actions/workflows/check-on-push.yaml
 [7]: https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/run-blocking.html
+[8]: https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/run-test.html
+[9]: https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/delay.html
+[10]: https://github.com/Kotlin/kotlinx.coroutines/blob/master/kotlinx-coroutines-test/README.md#controlling-the-virtual-time
