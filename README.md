@@ -17,7 +17,7 @@ One of the nice things about multi-platform Kotlin is that ideally a single vers
 without change on different platforms. Unfortunately, (currently) there are still cases where it seems this goal could
 theoretically be achieved, but for some reason Kotlin and its standard library do not provide a way to do so.
 
-One of these cases is [kotlinx.coroutines.runBlocking][7], which is not supported in Kotlin JS.
+One of these cases is [`kotlinx.coroutines.runBlocking`][7], which is not supported in Kotlin JS.
 
 This library tries to fill in that gap, specifically for the use case of test functions which make use of coroutines /
 async functionality.
