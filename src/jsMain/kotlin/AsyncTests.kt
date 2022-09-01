@@ -1,10 +1,9 @@
 package com.tomuvak.testing.coroutines
 
-import kotlinx.coroutines.CoroutineName
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.asPromise
-import kotlinx.coroutines.async
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.promise
 
-private val testScope = CoroutineScope(CoroutineName("test-scope"))
-
-actual fun asyncTest(block: suspend CoroutineScope.() -> Unit): dynamic = testScope.async { block() }.asPromise()
+@OptIn(DelicateCoroutinesApi::class)
+actual fun asyncTest(block: suspend CoroutineScope.() -> Unit): dynamic = GlobalScope.promise(block=block)
